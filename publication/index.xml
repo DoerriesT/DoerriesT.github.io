@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Tim Dörries</title>
+    <link>https://doerriest.github.io/publication/</link>
+      <atom:link href="https://doerriest.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0200</lastBuildDate>
+    <image>
+      <url>https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Publications</title>
+      <link>https://doerriest.github.io/publication/</link>
+    </image>
+    
+    <item>
+      <title>Real-Time Volumetric Lighting with Volumetric Shadows</title>
+      <link>https://doerriest.github.io/publication/master/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/publication/master/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>State of the Art in Image-Based Post-Processing Effects</title>
+      <link>https://doerriest.github.io/publication/bachelor/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/publication/bachelor/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

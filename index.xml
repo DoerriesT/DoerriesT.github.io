@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tim Dörries</title>
+    <link>https://doerriest.github.io/</link>
+      <atom:link href="https://doerriest.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tim Dörries</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0200</lastBuildDate>
+    <image>
+      <url>https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Tim Dörries</title>
+      <link>https://doerriest.github.io/</link>
+    </image>
+    
+    <item>
+      <title>Real-Time Volumetric Lighting with Volumetric Shadows</title>
+      <link>https://doerriest.github.io/publication/master/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/publication/master/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CUDA Pathtracer</title>
+      <link>https://doerriest.github.io/project/cudapathtracer/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/cudapathtracer/</guid>
+      <description>&lt;p&gt;This is a simple pathtracer written in CUDA and C++ featuring procedural shapes (sphere, cylinder, disk, cone paraboloid, quad and cube), different material types (lambertian diffuse, GGX specular), a BVH for accelerating ray-scene intersections, as well as support for simple textured scenes and HDRI environments. See &lt;a href=&#34;https://github.com/DoerriesT/PathtracerCUDA&#34;&gt;https://github.com/DoerriesT/PathtracerCUDA&lt;/a&gt; for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terrain Editor</title>
+      <link>https://doerriest.github.io/project/terrain-editor/</link>
+      <pubDate>Tue, 21 Jan 2020 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/terrain-editor/</guid>
+      <description>&lt;p&gt;This simple terrain editor is written in TypeScript and uses WebGL 2.0 for visualization. It features multiple different brushes for modifying the height map, painting additional diffuse/albedo maps, as well as placing trees (whose positions can be exported as a JSON file). The main feature is the erosion system (featuring a shallow water simulation for small rivers), which is an implementation of the technique proposed in &lt;a href=&#34;https://hal.inria.fr/inria-00402079/document&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Fast Hydraulic Erosion Simulation and Visualization on GPU&amp;rdquo; by Mei et al. (2007)&lt;/a&gt;. The project was created in collaboration with &lt;a href=&#34;https://github.com/peterberweiler&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Berweiler&lt;/a&gt;. Peter implemented most of the TypeScript related functionality and did most of the brushes. All the rendering aspects of the application were my responsibility. The erosion system was prototyped by Peter and later fully implemented by me.&lt;/p&gt;
+&lt;p&gt;You can try out a live demo at:
+&lt;a href=&#34;https://peterberweiler.github.io/ITA-Project/&#34;&gt;https://peterberweiler.github.io/ITA-Project/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Separable Subsurface Scattering</title>
+      <link>https://doerriest.github.io/project/subsurface-scattering/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/subsurface-scattering/</guid>
+      <description>&lt;p&gt;This is an implementation of the Separable Subsurface Scattering technique from &lt;a href=&#34;http://www.iryoku.com/separable-sss/&#34;&gt;http://www.iryoku.com/separable-sss/&lt;/a&gt; in C++ and Vulkan 1.0. Additionally this demo features physically-based shading, image-based lighting, shadow mapping and temporal anti-aliasing. See &lt;a href=&#34;https://github.com/DoerriesT/Separable-Subsurface-Scattering-Demo&#34;&gt;https://github.com/DoerriesT/Separable-Subsurface-Scattering-Demo&lt;/a&gt; for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>State of the Art in Image-Based Post-Processing Effects</title>
+      <link>https://doerriest.github.io/publication/bachelor/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/publication/bachelor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mesh Painter</title>
+      <link>https://doerriest.github.io/project/meshpainter/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/meshpainter/</guid>
+      <description>&lt;p&gt;A proof of concept tool for painting textures in 3D. Uses Qt for the GUI and OpenGL for rendering the viewport. The tool allows to paint albedo, metallic, roughness, ambient occlusion, emissive and displacement maps. The painting works by writing out the UVs of the rendered model to a render target and reading back the values hovered by the mouse. These UV values are then used to draw line segments into the currently selected texture. The line segments are implemented as a series of splatted quads with an alpha falloff to simulate smooth lines.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://doerriest.github.io/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>https://doerriest.github.io/privacy/</guid>
+      <description>&lt;p&gt;Add your privacy policy here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terms</title>
+      <link>https://doerriest.github.io/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>https://doerriest.github.io/terms/</guid>
+      <description>&lt;p&gt;Add your terms here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://doerriest.github.io/admin/config.yml</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://doerriest.github.io/admin/config.yml</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
