@@ -30,10 +30,10 @@
   
     
   
-  <meta name="description" content="Add your terms here and set draft: false to publish it. Otherwise, delete this file if you don&rsquo;t need it." />
+  <meta name="description" content="An experimental implementation (C&#43;&#43;/Vulkan) of a real-time GI technique based on the &#39;Scalable Real-Time Global Illumination for Large Scenes&#39; talk by Anton Yudintsev." />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://doerriest.github.io/terms/" />
+  <link rel="alternate" hreflang="en-us" href="https://doerriest.github.io/project/voxel-probe-gi/" />
 
   
 
@@ -273,7 +273,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_2.png" />
 
-  <link rel="canonical" href="https://doerriest.github.io/terms/" />
+  <link rel="canonical" href="https://doerriest.github.io/project/voxel-probe-gi/" />
 
   
   
@@ -284,45 +284,89 @@
   
   
     
-    
   
   
-  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:card" content="summary_large_image" />
   
   <meta property="og:site_name" content="Tim Dörries" />
-  <meta property="og:url" content="https://doerriest.github.io/terms/" />
-  <meta property="og:title" content="Terms | Tim Dörries" />
-  <meta property="og:description" content="Add your terms here and set draft: false to publish it. Otherwise, delete this file if you don&rsquo;t need it." /><meta property="og:image" content="https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png" />
-    <meta property="twitter:image" content="https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png" /><meta property="og:locale" content="en-us" />
+  <meta property="og:url" content="https://doerriest.github.io/project/voxel-probe-gi/" />
+  <meta property="og:title" content="Experiments with &#39;Scalable Real-Time Global Illumination&#39; | Tim Dörries" />
+  <meta property="og:description" content="An experimental implementation (C&#43;&#43;/Vulkan) of a real-time GI technique based on the &#39;Scalable Real-Time Global Illumination for Large Scenes&#39; talk by Anton Yudintsev." /><meta property="og:image" content="https://doerriest.github.io/project/voxel-probe-gi/featured.png" />
+    <meta property="twitter:image" content="https://doerriest.github.io/project/voxel-probe-gi/featured.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2018-06-28T00:00:00&#43;01:00"
+        content="2020-02-26T00:00:00&#43;02:00"
       />
     
-    <meta property="article:modified_time" content="2018-06-28T00:00:00&#43;01:00">
+    <meta property="article:modified_time" content="2020-02-26T00:00:00&#43;02:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://doerriest.github.io/project/voxel-probe-gi/"
+  },
+  "headline": "Experiments with 'Scalable Real-Time Global Illumination'",
+  
+  "image": [
+    "https://doerriest.github.io/project/voxel-probe-gi/featured.png"
+  ],
+  
+  "datePublished": "2020-02-26T00:00:00+02:00",
+  "dateModified": "2020-02-26T00:00:00+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Tim Dörries"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tim Dörries",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "An experimental implementation (C++/Vulkan) of a real-time GI technique based on the 'Scalable Real-Time Global Illumination for Large Scenes' talk by Anton Yudintsev."
+}
+</script>
+
+  
+
+  
+
   
 
   
 
 
 
-  
-
-  
-
-  
 
 
-
-
-
-  <title>Terms | Tim Dörries</title>
+  <title>Experiments with &#39;Scalable Real-Time Global Illumination&#39; | Tim Dörries</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="9b10c1f64082d3869fd4cb1f85809430" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="51470536a69d2e33643886f75ee449a3" >
 
   
   
@@ -562,7 +606,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+          <a class="nav-link " href="/#experience"><span>Professional Experience</span></a>
         </li>
 
         
@@ -620,7 +664,7 @@
   </div>
 
   <div class="page-body">
-    <article class="article">
+    <article class="article article-project">
 
   
 
@@ -635,25 +679,51 @@
 
 
 
-  
+
+
+
+
+
+
+
 
   
-  
-  
-<div class="article-container pt-3">
-  <h1>Terms</h1>
-
-  
-
   
     
+  
+
+
+<div class="article-container pt-3">
+  <h1>Experiments with &#39;Scalable Real-Time Global Illumination&#39;</h1>
+
+  
+
+  
 
 
 <div class="article-metadata">
 
   
   
+  
+  
+  <div>
+    
 
+  <span >
+      Tim Dörries</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 26, 2020
+  </span>
   
 
   
@@ -672,13 +742,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 405px;">
+  <div style="position: relative">
+    <img src="/project/voxel-probe-gi/featured_hu655357538e6e315e0ed4784108c20346_2914061_720x0_resize_lanczos_2.png" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -686,7 +763,28 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>Add your terms here and set <code>draft: false</code> to publish it. Otherwise, delete this file if you don&rsquo;t need it.</p>
+      <p>Inspired by the <a href="https://enlisted.net/en/news/show/25-gdc-talk-scalable-real-time-ray-traced-global-illumination-for-large-scenes-en" target="_blank" rel="noopener">&lsquo;Scalable Real-Time Global Illumination for Large Scenes&rsquo; GDC talk held by Anton Yudintsev</a>, I set out to implement a similar real-time global illumination solution.</p>
+<p>The technique as described in the talk uses multiple cascades of irradiance volume probes around the camera to provide the indirect diffuse lighting. The probes store lighting information in the Half-Life 2 &lsquo;ambient cube basis&rsquo; and are updated every frame by casting rays into a low resolution voxelized representation of the scene (also in multiple cascades). The voxel representation of the scene is initially created with GPU-voxelization and then updated every frame by feeding the lit frame back into the voxel scene (screen space voxelization). This setup makes the technique fairly cheap, both in terms of processing and memory.</p>
+<p>However, when I implemented it in my hobby render engine (C++/Vulkan), the technique suffered from both light leaking artifacts common to many irradiance volume approaches and low lighting quality caused by the ambient cube basis used to store the irradiance.
+Searching for solutions to both problems, I found the <a href="http://jcgt.org/published/0008/02/01/" target="_blank" rel="noopener">Dynamic Diffuse Global Illumination with Ray-Traced Irradiance Fields</a> paper by Majercik et al., which uses a similar approach for GI. It differs in three key aspects from the first technique:</p>
+<ul>
+<li>
+<p>It uses hardware raytracing on the actual scene instead of raymarching in a voxelized representation of it.</p>
+</li>
+<li>
+<p>Octahedron Mapping is used to store 8x8 texels of irradiance per probe, resulting in a higher resolution of irradiance information compared to the Half-Life 2 ambient cube basis.</p>
+</li>
+<li>
+<p>And most importantly: Each probe stores the first two moments of depth in a 16x16 texel mini shadow map. This data is used similar in spirit to Variance Shadow Mapping to determine shading point to probe visiblity and combat light leaking.</p>
+</li>
+</ul>
+<p>Since I had no GPU capable of hardware raytracing and wanted to keep the good performance characteristics of my initial implementation, I kept the voxel representation of the scene. However, adapting the other two aspects drastically improved the visual quality and reduced light leaking. See the image below for what the irradiance data of the probes packed into a texture looks like:</p>
+<p><img src="/img/voxel_probe_gi_probe_texture.png" alt="Irradiance Probe Atlas Texture"></p>
+<p>The final problem I had to solve was that the depth information stored in each probe was generated by raymarching the low resolution voxel scene, leading to inaccuracies, which in turn caused the light leaking reduction to not be effective enough.</p>
+<p>I managed to partially solve this problem by increasing the resolution of the voxel scene. In order to stay in budget, I implemented a sparse voxel grid, where each grid cell has a pointer/index into a list of blocks of voxels. This way, only those cells that actually intersect geometry need to have memory for voxels allocated. Allocation, voxelization and freeing of voxel blocks is done entirely on the GPU without CPU intervention.</p>
+<p>While this approach enabled sufficiently high voxel resolutions, it is still slower than the original low resolution brute force way of storing and raymarching voxels. Depending on the scene, my final implementation of the effect also sometimes takes too long to converge to acceptable results (especially in low light conditions such as the lower sponza hallways). However, these experiments were still fairly educational to me and showed that the light leaking approach introduced by Majercik et al. can in theory solve most problematic light leaking cases (just not when you generate the depth information by tracing low resolution voxels).</p>
+<p>The following image shows the indirect diffuse lighting term of the scene shown at the start of this post:</p>
+<p><img src="/img/voxel_probe_gi_indirect_diffuse_term.png" alt="Sponza Indirect Diffuse"></p>
 
     </div>
 
@@ -699,6 +797,108 @@
 
 
 
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://doerriest.github.io/project/voxel-probe-gi/&amp;text=Experiments%20with%20&amp;#39;Scalable%20Real-Time%20Global%20Illumination&amp;#39;" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://doerriest.github.io/project/voxel-probe-gi/&amp;t=Experiments%20with%20&amp;#39;Scalable%20Real-Time%20Global%20Illumination&amp;#39;" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Experiments%20with%20&amp;#39;Scalable%20Real-Time%20Global%20Illumination&amp;#39;&amp;body=https://doerriest.github.io/project/voxel-probe-gi/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://doerriest.github.io/project/voxel-probe-gi/&amp;title=Experiments%20with%20&amp;#39;Scalable%20Real-Time%20Global%20Illumination&amp;#39;" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Experiments%20with%20&amp;#39;Scalable%20Real-Time%20Global%20Illumination&amp;#39;%20https://doerriest.github.io/project/voxel-probe-gi/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://doerriest.github.io/project/voxel-probe-gi/&amp;title=Experiments%20with%20&amp;#39;Scalable%20Real-Time%20Global%20Illumination&amp;#39;" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+  
 
 
 
@@ -713,12 +913,29 @@
 
 
 
+  
+  
 
 
 
 
 
+    <div class="project-related-pages content-widget-hr">
+      
+      
 
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+    </div>
   </div>
 </article>
   </div>
@@ -731,16 +948,6 @@
 
   
 
-  
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-    
-  </p>
   
 
   <p class="powered-by">

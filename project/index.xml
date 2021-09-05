@@ -5,7 +5,7 @@
     <link>https://doerriest.github.io/project/</link>
       <atom:link href="https://doerriest.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0200</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0200</lastBuildDate>
     <image>
       <url>https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
@@ -13,11 +13,62 @@
     </image>
     
     <item>
+      <title>VEngine (Vulkan/D3D12 Hobby Render Engine)</title>
+      <link>https://doerriest.github.io/project/hobby-render-engine-vulkan/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/hobby-render-engine-vulkan/</guid>
+      <description>&lt;p&gt;Wanting to familiarize myself with Vulkan, I wrote another hobby render engine from scratch. The learning curve was fairly steep, but eventually I came out on top. The first thing I implemented was a render graph/frame graph so that I would no longer have to manually synchronize access to GPU resources. The way it works is that one can register resources and passes using those resources in a reading or writing manner. The render graph then figures out the required synchronization (even supporting multiple queues aka async compute), creates temporary resources, records command buffers and submits them to the GPU.&lt;/p&gt;
+&lt;p&gt;Later, I implemented an abstraction layer over both Vulkan and D3D12 so that the same rendering code and the same shaders could be used with both APIs. Creating this abstraction layer was very insightful to me and tought me a lot about D3D12.&lt;/p&gt;
+&lt;p&gt;Apart from these more interesting points, the renderer also features the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Physically Based Rendering&lt;/li&gt;
+&lt;li&gt;Dynamically updated parallax corrected cubemaps for reflections (Image Based Lighting). The cubemaps are rendered once into a g-buffer and then relit on demand.&lt;/li&gt;
+&lt;li&gt;Temporal Anti-Aliasing. This one was a major step up in quality compared to FXAA/SMAA in my old hobby engine :)&lt;/li&gt;
+&lt;li&gt;Shadowed point-, spot- and directional lights. Point- and spot lights share a shadow atlas.&lt;/li&gt;
+&lt;li&gt;Bloom&lt;/li&gt;
+&lt;li&gt;Particles&lt;/li&gt;
+&lt;li&gt;And as part of my masters thesis: Volumetric Lighting with volumetric shadows for both volume and particle based participating media.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &amp;lsquo;V&amp;rsquo; in &amp;lsquo;VEngine&amp;rsquo; stands for Vulkan. Naming things is one of the hardest problems in programming.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>CUDA Pathtracer</title>
       <link>https://doerriest.github.io/project/cudapathtracer/</link>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0200</pubDate>
       <guid>https://doerriest.github.io/project/cudapathtracer/</guid>
       <description>&lt;p&gt;This is a simple pathtracer written in CUDA and C++ featuring procedural shapes (sphere, cylinder, disk, cone paraboloid, quad and cube), different material types (lambertian diffuse, GGX specular), a BVH for accelerating ray-scene intersections, as well as support for simple textured scenes and HDRI environments. See &lt;a href=&#34;https://github.com/DoerriesT/PathtracerCUDA&#34;&gt;https://github.com/DoerriesT/PathtracerCUDA&lt;/a&gt; for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Experiments with &#39;Scalable Real-Time Global Illumination&#39;</title>
+      <link>https://doerriest.github.io/project/voxel-probe-gi/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/voxel-probe-gi/</guid>
+      <description>&lt;p&gt;Inspired by the &lt;a href=&#34;https://enlisted.net/en/news/show/25-gdc-talk-scalable-real-time-ray-traced-global-illumination-for-large-scenes-en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;lsquo;Scalable Real-Time Global Illumination for Large Scenes&amp;rsquo; GDC talk held by Anton Yudintsev&lt;/a&gt;, I set out to implement a similar real-time global illumination solution.&lt;/p&gt;
+&lt;p&gt;The technique as described in the talk uses multiple cascades of irradiance volume probes around the camera to provide the indirect diffuse lighting. The probes store lighting information in the Half-Life 2 &amp;lsquo;ambient cube basis&amp;rsquo; and are updated every frame by casting rays into a low resolution voxelized representation of the scene (also in multiple cascades). The voxel representation of the scene is initially created with GPU-voxelization and then updated every frame by feeding the lit frame back into the voxel scene (screen space voxelization). This setup makes the technique fairly cheap, both in terms of processing and memory.&lt;/p&gt;
+&lt;p&gt;However, when I implemented it in my hobby render engine (C++/Vulkan), the technique suffered from both light leaking artifacts common to many irradiance volume approaches and low lighting quality caused by the ambient cube basis used to store the irradiance.
+Searching for solutions to both problems, I found the &lt;a href=&#34;http://jcgt.org/published/0008/02/01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dynamic Diffuse Global Illumination with Ray-Traced Irradiance Fields&lt;/a&gt; paper by Majercik et al., which uses a similar approach for GI. It differs in three key aspects from the first technique:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It uses hardware raytracing on the actual scene instead of raymarching in a voxelized representation of it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Octahedron Mapping is used to store 8x8 texels of irradiance per probe, resulting in a higher resolution of irradiance information compared to the Half-Life 2 ambient cube basis.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And most importantly: Each probe stores the first two moments of depth in a 16x16 texel mini shadow map. This data is used similar in spirit to Variance Shadow Mapping to determine shading point to probe visiblity and combat light leaking.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since I had no GPU capable of hardware raytracing and wanted to keep the good performance characteristics of my initial implementation, I kept the voxel representation of the scene. However, adapting the other two aspects drastically improved the visual quality and reduced light leaking. See the image below for what the irradiance data of the probes packed into a texture looks like:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/voxel_probe_gi_probe_texture.png&#34; alt=&#34;Irradiance Probe Atlas Texture&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The final problem I had to solve was that the depth information stored in each probe was generated by raymarching the low resolution voxel scene, leading to inaccuracies, which in turn caused the light leaking reduction to not be effective enough.&lt;/p&gt;
+&lt;p&gt;I managed to partially solve this problem by increasing the resolution of the voxel scene. In order to stay in budget, I implemented a sparse voxel grid, where each grid cell has a pointer/index into a list of blocks of voxels. This way, only those cells that actually intersect geometry need to have memory for voxels allocated. Allocation, voxelization and freeing of voxel blocks is done entirely on the GPU without CPU intervention.&lt;/p&gt;
+&lt;p&gt;While this approach enabled sufficiently high voxel resolutions, it is still slower than the original low resolution brute force way of storing and raymarching voxels. Depending on the scene, my final implementation of the effect also sometimes takes too long to converge to acceptable results (especially in low light conditions such as the lower sponza hallways). However, these experiments were still fairly educational to me and showed that the light leaking approach introduced by Majercik et al. can in theory solve most problematic light leaking cases (just not when you generate the depth information by tracing low resolution voxels).&lt;/p&gt;
+&lt;p&gt;The following image shows the indirect diffuse lighting term of the scene shown at the start of this post:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/voxel_probe_gi_indirect_diffuse_term.png&#34; alt=&#34;Sponza Indirect Diffuse&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -42,11 +93,84 @@
     </item>
     
     <item>
+      <title>OpenGL Hobby Render Engine</title>
+      <link>https://doerriest.github.io/project/hobby-render-engine-opengl/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/hobby-render-engine-opengl/</guid>
+      <description>&lt;p&gt;Using the &amp;lsquo;More than Fifty-Two&amp;rsquo; renderer code base (also written by me) as a starting point, I implemented my very first renderer/render engine that wasn&amp;rsquo;t tied to a specific project. It is written in C++, uses OpenGL 4.5 as its graphics API and features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Physically based rendering (PBR)&lt;/li&gt;
+&lt;li&gt;Baked probe-based global illumination&lt;/li&gt;
+&lt;li&gt;Parallax corrected cubemaps for specular reflections (image based lighting)&lt;/li&gt;
+&lt;li&gt;Shadowed point-, spot- and directional lights&lt;/li&gt;
+&lt;li&gt;Bloom&lt;/li&gt;
+&lt;li&gt;Some not so realistic lens flare and camera dirt effects&lt;/li&gt;
+&lt;li&gt;And as part of my bachelors thesis: several SSAO, depth of field and motion blur techniques&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Mesh Painter</title>
       <link>https://doerriest.github.io/project/meshpainter/</link>
       <pubDate>Thu, 30 Aug 2018 00:00:00 +0200</pubDate>
       <guid>https://doerriest.github.io/project/meshpainter/</guid>
       <description>&lt;p&gt;A proof of concept tool for painting textures in 3D. Uses Qt for the GUI and OpenGL for rendering the viewport. The tool allows to paint albedo, metallic, roughness, ambient occlusion, emissive and displacement maps. The painting works by writing out the UVs of the rendered model to a render target and reading back the values hovered by the mouse. These UV values are then used to draw line segments into the currently selected texture. The line segments are implemented as a series of splatted quads with an alpha falloff to simulate smooth lines.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>&#39;More than Fifty-Two&#39; (C&#43;&#43;)</title>
+      <link>https://doerriest.github.io/project/cardgame-cpp/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/cardgame-cpp/</guid>
+      <description>&lt;p&gt;Having created our original &amp;lsquo;More than Fifty-Two&amp;rsquo; multiplayer card game sandbox in Java, we wanted to get some experience using C++ and improve upon our game by recreating it from scratch in C++.&lt;/p&gt;
+&lt;p&gt;Similar to the Java version, this new version of &amp;lsquo;More than Fifty-Two&amp;rsquo; is a multiplayer card game sandbox, giving players the power to create their own card game rule sets and card designs and share them online to play with others. Unlike the previous version, the game rules can now be edited in an in-game editor:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/card_game_cpp_editor.PNG&#34; alt=&#34;Rule Editor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Visually, the game received a big upgrade: It now has multiple environments in which to play cards. Taking inspiration from the solar panel table material present in the old Java version, one of the locations to play cards on is the solar panel of a satellite orbiting earth (see the image at the top of this post). As an excuse to experiment with ocean rendering (based on the classic FFT ocean rendering technique), there is an additional environment in the arctic ocean where players can play cards on a floating piece of ice:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/card_game_cpp_ocean.PNG&#34; alt=&#34;Arctic Ocean level&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This time around, I was again responsible for realizing the renderer and other engine functionality (except for networking).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Implicit Surface Fluid Rendering</title>
+      <link>https://doerriest.github.io/project/portal-fluid/</link>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/portal-fluid/</guid>
+      <description>&lt;p&gt;This is a demonstration of an effect for rendering fluids with implicit surfaces, written in C++ and OpenGL. It works by first simulating particles on the CPU:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/portal_fluid_particles.PNG&#34; alt=&#34;Particles&#34; title=&#34;Test&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then it renders a quad for each particle on the GPU:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/portal_fluid_quads.PNG&#34; alt=&#34;Quads&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And finally it traces a ray in the quad&amp;rsquo;s pixel shader against the implicit surface formed by the distance field formed by the set of particles:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/portal_fluid_spheres.PNG&#34; alt=&#34;Quads&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Each particle on its own defines a spherical distance field where the implicit surface is defined as being at distance X from the surface. This results in small spheres that can look like droplets. By combining the distance fields of multiple particles, a more natural result can be achieved because the implicit surface now deforms according to the influences of multiple particles (see the image at the start of this post).&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://github.com/DoerriesT/Implicit-Surface-Fluid-Rendering&#34;&gt;https://github.com/DoerriesT/Implicit-Surface-Fluid-Rendering&lt;/a&gt; for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PlayStation Vita Rubik&#39;s Cube</title>
+      <link>https://doerriest.github.io/project/rubix-cube-psvita/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/rubix-cube-psvita/</guid>
+      <description>&lt;p&gt;This is a small game for the PlayStation Vita that let&amp;rsquo;s you solve a Rubik&amp;rsquo;s Cube. It is written in C++ and uses libgxm as its graphics API. The cube can be rotated using the touchpad on the backside of the console. Individual cube slices can be rotated by touching and dragging them on the touchscreen on the front.
+As for the graphics, the game uses simple Blinn-Phong shading combined with an environment map, as well as tangent space normal mapping.
+The game also plays some royalty-free jazz music in the background.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>&#39;More than Fifty-Two&#39; (Java)</title>
+      <link>https://doerriest.github.io/project/cardgame-java/</link>
+      <pubDate>Sat, 14 Oct 2017 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/cardgame-java/</guid>
+      <description>&lt;p&gt;&amp;lsquo;More than Fifty-Two&amp;rsquo; is a multiplayer card game sandbox that two of my friends and me developed. It gives players the power to create their own card game rule sets and card designs and share them online to play with others. See the image below, showing what the game looks like in-game (Note that it even features an in-game chat):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/card_game_java_ingame.png&#34; alt=&#34;In-Game&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The game is written in Java and uses LWJGL to access OpenGL as the graphics API used in its custom renderer. The renderer features shadow mapping, image based lighting and physically based rendering.&lt;/p&gt;
+&lt;p&gt;The game comes with a standalone editor application for creating the rules of new card games:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://doerriest.github.io/img/card_game_java_editor.png&#34; alt=&#34;Rule Editor App&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Although my role during developement was mainly focused on implementing the rendering and &amp;ldquo;engine&amp;rdquo; aspects of the game, I was also responsible for creating the rule editor application.&lt;/p&gt;
 </description>
     </item>
     
