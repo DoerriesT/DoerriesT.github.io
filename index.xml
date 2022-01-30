@@ -5,12 +5,42 @@
     <link>https://doerriest.github.io/</link>
       <atom:link href="https://doerriest.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Tim Dörries</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0200</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0200</lastBuildDate>
     <image>
       <url>https://doerriest.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Tim Dörries</title>
       <link>https://doerriest.github.io/</link>
     </image>
+    
+    <item>
+      <title>VEngine 2 (Vulkan/D3D12 Hobby Render Engine)</title>
+      <link>https://doerriest.github.io/project/vengine2/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0200</pubDate>
+      <guid>https://doerriest.github.io/project/vengine2/</guid>
+      <description>&lt;p&gt;Having learned a lot from the previous version of my engine, I started work on this new version in early 2021. Instead of diving straight into writing the renderer, I first did a lot of non-rendering work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I implemented a custom entity component system (ECS). The ECS is a so called &lt;a href=&#34;https://docs.unity3d.com/Packages/com.unity.entities@0.2/manual/ecs_core.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;archetype ECS&lt;/a&gt;, because it stores all entities with the same set of components (which define an archetype) in tightly packed arrays. This allows for very cache efficient and fast iteration over components.&lt;/li&gt;
+&lt;li&gt;In order to facilitate multithreading, I implemented a fiber based job system, inspired by &lt;a href=&#34;https://www.gdcvault.com/play/1022186/Parallelizing-the-Naughty-Dog-Engine&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Parallelizing the Naughty Dog Engine Using Fibers&amp;rdquo; as presented by Christian Gyrling&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I also spent some time on an asset manager/system that does loading, caching, reference counting and unloading of assets.&lt;/li&gt;
+&lt;li&gt;For physics I integrated PhysX, which is also used for character controllers in the engine.&lt;/li&gt;
+&lt;li&gt;Skinned animation has been an item on my list for quite a while, so I took the time to finally implement this feature. While still far from animation systems in proper game engines, it does support setting up blend trees using a node graph system. The parameters for the blend trees are controlled through lua scripts.
+&lt;img src=&#34;https://doerriest.github.io/img/vengine2_editor_blend_tree.png&#34; alt=&#34;Node Graph Blend Tree&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Using the physics and character controller provided by PhysX and the animation system I had created, I implemented my first animated and controllable third person character!&lt;/li&gt;
+&lt;li&gt;Since I had basic support for scripts at this point, I went a step further and added a ScriptComponent that can be used to attach arbitrary scripts to entities. Lua scripts can access the ECS, giving them access to most data in the engine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In late 2021 I finally turned to implementing rendering features. Unlike the previous version, this renderer uses descriptor indexing for all resources, significantly simplifying descriptor set management. Vulkan and D3D12 are accessed through a custom abstraction layer, most of which was inherited from the previous iteration of the engine. Shaders are written once in HLSL and compiled with DXC to either DXIL (D3D12) or SPIR-V (Vulkan). Shader code for TAA, GTAO, Volumetric Fog, bloom and auto-exposure is also taken from the previous version.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Synchronization and temporary resource allocation is managed by a simple render graph implementation.&lt;/li&gt;
+&lt;li&gt;I also implemented relightable reflection probes. Each frame the g-buffer of a single probe is lit and then filtered with importance sampling.&lt;/li&gt;
+&lt;li&gt;Very recently I implemented a first version of global illumination based on &lt;a href=&#34;https://jcgt.org/published/0008/02/01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Dynamic Diffuse Global Illumination (DDGI)&amp;rdquo; by Majercik et al.&lt;/a&gt;. Unfortunately I do not have access to any GPU capable of hardware supported raytracing, so for now the irradiance probes are generated in a dedicated baking step, where cubemaps are rendered for each probe. Once I get access to newer hardware, I plan to add support for updating the probes at runtime using raytracing.
+&lt;img src=&#34;https://doerriest.github.io/img/vengine2_global_illumination.png&#34; alt=&#34;Global Illumination&#34;&gt;
+One neat property of irradiance volume techniques such as DDGI is that they can be sampled by Volumetric Fog, enabling very atmospheric scenes with volumetric lighting:
+&lt;img src=&#34;https://doerriest.github.io/img/vengine2_volumetric_fog0.png&#34; alt=&#34;Global Illumination affecting Volumetric Fog&#34;&gt;
+&lt;img src=&#34;https://doerriest.github.io/img/vengine2_volumetric_fog1.png&#34; alt=&#34;Global Illumination affecting Volumetric Fog&#34;&gt;&lt;/li&gt;
+&lt;li&gt;All the basic light types (directional/point/spot) present in the previous version are supported in the new version as well. Shadow maps for point and spot lights are automatically resized to match the resolution of the projected light size, minimizing wasted performance and memory due to undersampling. The system still stands to benefit from caching shadows, which is something I plan to implement in the future.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Real-Time Volumetric Lighting with Volumetric Shadows</title>

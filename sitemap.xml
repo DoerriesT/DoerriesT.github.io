@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://doerriest.github.io/publication-type/7/</loc>
-    <lastmod>2020-10-07T00:00:00+02:00</lastmod>
-  </url><url>
     <loc>https://doerriest.github.io/project/</loc>
+    <lastmod>2022-01-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://doerriest.github.io/</loc>
+    <lastmod>2022-01-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://doerriest.github.io/project/vengine2/</loc>
+    <lastmod>2022-01-30T00:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://doerriest.github.io/publication-type/7/</loc>
     <lastmod>2020-10-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://doerriest.github.io/publication_types/</loc>
@@ -15,9 +21,6 @@
     <lastmod>2020-10-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://doerriest.github.io/publication/master/</loc>
-    <lastmod>2020-10-07T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://doerriest.github.io/</loc>
     <lastmod>2020-10-07T00:00:00+02:00</lastmod>
   </url><url>
     <loc>https://doerriest.github.io/project/hobby-render-engine-vulkan/</loc>
